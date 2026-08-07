@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-only-change-me')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.trycloudflare.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.trycloudflare.com', 'arashe-the-blood.onrender.com']
 
 
 # Application definition
