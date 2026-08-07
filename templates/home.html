@@ -1,0 +1,422 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% trans "ARASHE the BLOOD" %}</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+
+        <div class="hero-overlay"></div>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                ARASHE <span>the BLOOD</span>
+            </div>
+
+            <div class="language-switcher">
+
+                <form method="post" action="{% url 'set_language' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="language" value="en">
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button type="submit" class="{% if LANGUAGE_CODE == 'en' %}active{% endif %}">
+                        EN
+                    </button>
+                </form>
+
+                <span>|</span>
+
+                <form method="post" action="{% url 'set_language' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="language" value="ar">
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <button type="submit" class="{% if LANGUAGE_CODE == 'ar' %}active{% endif %}">
+                        AR
+                    </button>
+                </form>
+
+            </div>
+
+
+            <div class="nav-links">
+                <a href="/">{% trans "HOME" %}</a>
+                <a href="#products">{% trans "PRODUCTS" %}</a>
+                <a href="#updates">{% trans "UPDATES" %}</a>
+                <a href="#news">{% trans "NEWS" %}</a>
+
+                <a href="#"
+                   class="telegram-nav-link"
+                   id="telegram-open">
+                    TELEGRAM
+                </a>
+            </div>
+
+        </nav>
+
+
+        <main class="hero-content">
+
+            <p class="subtitle">
+                {% trans "SOFTWARE • BOTS • APPLICATIONS" %}
+            </p>
+
+            <h1>
+                {% trans "ARASHE" %}<br>
+                <span>{% trans "the BLOOD" %}</span>
+            </h1>
+
+            <p class="description">
+                {% trans "A collection of applications, trading bots, financial tools and software projects." %}
+            </p>
+
+            <a href="#products" class="main-button">
+                EXPLORE
+            </a>
+
+        </main>
+
+    </header>
+
+
+    <section id="products" class="section">
+
+        <div class="section-title">
+            <span>01</span>
+            <h2>{% trans "PRODUCTS" %}</h2>
+        </div>
+
+        <div class="cards" id="applications">
+
+            <a href="#applications" class="card">
+                <div class="card-icon">◆</div>
+
+                <h3>{% trans "APPLICATIONS" %}</h3>
+
+                <p>
+                    {% trans "Software applications developed under ARASHE." %}
+                </p>
+            </a>
+
+
+            <a href="#trading-bots" class="card">
+                <div class="card-icon">◇</div>
+
+                <h3>{% trans "TRADING BOTS" %}</h3>
+
+                <p>
+                    {% trans "Automated trading systems and related projects." %}
+                </p>
+            </a>
+
+
+            <a href="#tools" class="card">
+                <div class="card-icon">◈</div>
+
+                <h3>{% trans "TOOLS" %}</h3>
+
+                <p>
+                    {% trans "Financial and technical tools." %}
+                </p>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section id="latest-release" class="section latest">
+
+        <div class="section-title">
+            <span>02</span>
+            <h2>{% trans "LATEST RELEASE" %}</h2>
+        </div>
+
+        <div class="release-box">
+
+            <div>
+
+                <p class="release-label">
+                    CURRENT VERSION
+                </p>
+
+                <h3>
+                    ARASHE — v0.1.0
+                </h3>
+
+                <p>
+                    {% trans "Initial development release." %}
+                </p>
+
+            </div>
+
+            <div class="release-version">
+                v0.1.0
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="updates" class="section">
+
+        <div class="section-title">
+            <span>03</span>
+            <h2>{% trans "LATEST UPDATES" %}</h2>
+        </div>
+
+        <div class="updates">
+
+            <article class="update">
+
+                <span>
+                    07.08.2026
+                </span>
+
+                <div>
+
+                    <h3>
+                        {% trans "ARASHE project started" %}
+                    </h3>
+
+                    <p>
+                        {% trans "Initial website and project architecture." %}
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="footer-logo">
+            ARASHE <span>the BLOOD</span>
+        </div>
+
+        <p>
+            © 2026 Tariq Ajroudi. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- TELEGRAM MODAL -->
+
+    <div
+        id="telegram-modal"
+        class="telegram-modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="telegram-modal-backdrop"
+            id="telegram-close-backdrop"
+        ></div>
+
+
+        <div
+            class="telegram-modal-window"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="telegram-modal-title"
+        >
+
+            <div class="telegram-modal-header">
+
+                <div>
+
+                    <span class="telegram-modal-number">
+                        04
+                    </span>
+
+                    <h2 id="telegram-modal-title">
+                        TELEGRAM
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="telegram-modal-close"
+                    id="telegram-close"
+                    aria-label="Close Telegram"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <p class="telegram-modal-description">
+                Telegram bots developed and operated under
+                the ARASHE ecosystem.
+            </p>
+
+
+            <div class="telegram-bots">
+
+
+                <a
+                    href="https://t.me/FojenCryptoBot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="telegram-modal-card"
+                >
+
+                    <div class="telegram-modal-card-icon">
+                        ✈
+                    </div>
+
+
+                    <div class="telegram-modal-card-content">
+
+                        <div class="telegram-modal-name-row">
+
+                            <h3>
+                                Fojen[t]
+                            </h3>
+
+                            <span class="status-badge">
+                                UNDER DEVELOPMENT
+                            </span>
+
+                        </div>
+
+
+                        <p class="telegram-modal-username">
+                            @FojenCryptoBot
+                        </p>
+
+
+                        <p class="telegram-modal-card-description">
+                            Official Telegram bot associated
+                            with the ARASHE ecosystem.
+                            Currently under construction
+                            and development.
+                        </p>
+
+                    </div>
+
+
+                    <div class="telegram-modal-card-status">
+
+                        <span class="status-dot"></span>
+
+                        DEVELOPMENT
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const telegramOpen =
+            document.getElementById("telegram-open");
+
+        const telegramModal =
+            document.getElementById("telegram-modal");
+
+        const telegramClose =
+            document.getElementById("telegram-close");
+
+        const telegramBackdrop =
+            document.getElementById("telegram-close-backdrop");
+
+
+        function openTelegramModal(event) {
+
+            event.preventDefault();
+
+            telegramModal.classList.add("is-open");
+
+            telegramModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+        }
+
+
+        function closeTelegramModal() {
+
+            telegramModal.classList.remove(
+                "is-open"
+            );
+
+            telegramModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        telegramOpen.addEventListener(
+            "click",
+            openTelegramModal
+        );
+
+
+        telegramClose.addEventListener(
+            "click",
+            closeTelegramModal
+        );
+
+
+        telegramBackdrop.addEventListener(
+            "click",
+            closeTelegramModal
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    telegramModal.classList.contains("is-open")
+                ) {
+
+                    closeTelegramModal();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
