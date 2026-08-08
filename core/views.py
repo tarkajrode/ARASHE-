@@ -7,3 +7,7 @@ def home(request):
 
 def telegram(request):
     return render(request, "telegram.html")
+
+
+def site_policy(request):
+    return render(request, "policy.html")

@@ -1,0 +1,281 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% if LANGUAGE_CODE == 'ar' %}
+            سياسة الموقع — ARASHE the BLOOD
+        {% else %}
+            Transparency — ARASHE the BLOOD
+        {% endif %}
+    </title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header class="hero">
+    <div class="hero-overlay"></div>
+
+    <nav class="navbar">
+        <div class="logo">
+            ARASHE <span>the BLOOD</span>
+        </div>
+
+        <div class="language-switcher">
+            <form method="post" action="{% url 'set_language' %}">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="en">
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button type="submit" class="{% if LANGUAGE_CODE == 'en' %}active{% endif %}">EN</button>
+            </form>
+
+            <span>|</span>
+
+            <form method="post" action="{% url 'set_language' %}">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="ar">
+                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                <button type="submit" class="{% if LANGUAGE_CODE == 'ar' %}active{% endif %}">AR</button>
+            </form>
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">
+                {% if LANGUAGE_CODE == 'ar' %}الرئيسية{% else %}Home{% endif %}
+            </a>
+        </div>
+    </nav>
+
+    <main class="hero-content">
+        <p class="subtitle">
+            {% if LANGUAGE_CODE == 'ar' %}سياسة الموقع{% else %}SITE POLICY{% endif %}
+        </p>
+
+        <h1>
+            {% if LANGUAGE_CODE == 'ar' %}
+                معلومات واضحة عن ARASHE
+            {% else %}
+                Clear information about ARASHE
+            {% endif %}
+        </h1>
+
+        <p class="description">
+            {% if LANGUAGE_CODE == 'ar' %}
+                معلومات مباشرة عن المشروع، المسؤول عنه، البرمجيات، المصدر، الخصوصية، والأمان.
+            {% else %}
+                Direct information about the project, its developer, software, source, privacy, and security.
+            {% endif %}
+        </p>
+    </main>
+</header>
+
+<main>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}عن ARASHE{% else %}About ARASHE{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                ARASHE هو مشروع برمجي مستقل يضم تطبيقات وأدوات ومشاريع تقنية وأنظمة آلية قيد التطوير.
+                يتم تطوير المشروع بصورة مستقلة، وتضاف إليه المكونات والميزات تدريجيًا.
+            {% else %}
+                ARASHE is an independent software project containing applications, tools, technical projects,
+                and automated systems under development.
+                The project is developed independently, with components and features added progressively.
+            {% endif %}
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}المسؤول عن المشروع{% else %}Responsible Developer{% endif %}
+            </h2>
+        </div>
+
+        <div class="release-box">
+            <div class="release-version">Tariq Ajroudi</div>
+            <p class="release-label">
+                {% if LANGUAGE_CODE == 'ar' %}
+                    مبرمج مستقل
+                {% else %}
+                    Independent Programmer
+                {% endif %}
+            </p>
+            <p>
+                {% if LANGUAGE_CODE == 'ar' %}
+                    المسؤول عن تطوير ARASHE وصيانة مكوناته البرمجية وإدارة الإصدارات المنشورة.
+                {% else %}
+                    Responsible for developing ARASHE, maintaining its software components,
+                    and managing published releases.
+                {% endif %}
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}المصدر المفتوح{% else %}Open Source{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                يتم نشر مصدر المشروع وتاريخه البرمجي على GitHub عندما يكون ذلك مناسبًا للمشروع.
+            {% else %}
+                The project's source and development history are published on GitHub when appropriate for the project.
+            {% endif %}
+        </p>
+
+        <p>
+            <a href="https://github.com/tarkajrode/ARASHE-" target="_blank" rel="noopener noreferrer">
+                GitHub — ARASHE
+            </a>
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}البرمجيات والمشاريع{% else %}Software & Projects{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                تتضمن ARASHE تطبيقات وأدوات ومشاريع برمجية مختلفة.
+                تختلف طبيعة كل مشروع ووظيفته، ولذلك ينبغي الرجوع إلى وصف كل مشروع وإصداره لمعرفة الغرض الفعلي منه.
+            {% else %}
+                ARASHE contains different applications, tools, and software projects.
+                Each project may have a different purpose and function, so its description and release information
+                should be used to understand its actual purpose.
+            {% endif %}
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}برمجيات التداول{% else %}Trading Software{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                تتضمن بعض مشاريع ARASHE برمجيات مرتبطة بالتداول والأسواق المالية.
+                هذه البرمجيات أدوات تقنية وليست وعدًا بتحقيق أرباح.
+            {% else %}
+                Some ARASHE projects include software related to trading and financial markets.
+                Such software is technical tooling and is not a promise of profit.
+            {% endif %}
+        </p>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                لا تُعد النتائج السابقة أو الاختبارات البرمجية ضمانًا للنتائج المستقبلية.
+                استخدام أي برنامج تداول يتم على مسؤولية المستخدم، ويتحمل المستخدم قراراته ومخاطره المالية.
+            {% else %}
+                Past results or software tests do not guarantee future results.
+                Trading software is used at the user's own responsibility, and the user remains responsible
+                for their financial decisions and risks.
+            {% endif %}
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}الخصوصية والبيانات{% else %}Privacy & Data{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                لا ينبغي افتراض أن أي تطبيق لا يجمع بيانات لمجرد كونه جزءًا من ARASHE.
+                تحدد كل خدمة أو تطبيق البيانات التي يحتاج إليها بحسب وظيفته.
+                سيتم توضيح أي جمع للبيانات أو استخدام لخدمات خارجية عندما يكون ذلك منطبقًا.
+            {% else %}
+                An application should not be assumed to collect no data simply because it is part of ARASHE.
+                Each service or application determines what data it requires according to its function.
+                Data collection or use of external services will be disclosed when applicable.
+            {% endif %}
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}الأمان{% else %}Security{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                المفاتيح السرية وبيانات الاعتماد الحساسة المستخدمة لتشغيل الخدمات لا ينبغي أن تكون جزءًا من مصدر المشروع العام.
+                يتم فصل أسرار التشغيل عن الكود المنشور باستخدام متغيرات البيئة حيثما كان ذلك ممكنًا.
+            {% else %}
+                Secret keys and sensitive credentials used to operate services should not be part of the public source.
+                Operational secrets are separated from published code using environment variables where possible.
+            {% endif %}
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}الإصدارات والتغييرات{% else %}Releases & Changes{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                يتم تطوير ARASHE بصورة مستمرة.
+                قد تتغير التطبيقات والواجهات والميزات والإعدادات بين الإصدارات.
+                سجل التغييرات والإصدارات المنشورة هو المرجع الأفضل لمعرفة حالة المشروع في وقت محدد.
+            {% else %}
+                ARASHE is continuously developed.
+                Applications, interfaces, features, and settings may change between releases.
+                Published releases and change history are the best reference for the project's state at a given time.
+            {% endif %}
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>
+                {% if LANGUAGE_CODE == 'ar' %}الترخيص{% else %}Licensing{% endif %}
+            </h2>
+        </div>
+
+        <p>
+            {% if LANGUAGE_CODE == 'ar' %}
+                حقوق استخدام وإعادة توزيع كل مكون تخضع للترخيص المرفق به أو الموضح في المستودع الخاص به.
+                عدم وجود ترخيص مفتوح المصدر لا يعني أن المحتوى أصبح متاحًا للاستخدام أو إعادة التوزيع بحرية.
+            {% else %}
+                The use and redistribution rights of each component are governed by the license attached to it
+                or specified in its repository.
+                The absence of an open-source license does not mean that the content is freely available for use or redistribution.
+            {% endif %}
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">
+        ARASHE <span>the BLOOD</span>
+    </div>
+</footer>
+
+</body>
+</html>

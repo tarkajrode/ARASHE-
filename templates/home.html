@@ -58,6 +58,10 @@
                    id="telegram-open">
                     TELEGRAM
                 </a>
+
+                <a href="{% url 'site_policy' %}">
+                    {% if LANGUAGE_CODE == 'ar' %}سياسة الموقع{% else %}SITE POLICY{% endif %}
+                </a>
             </div>
 
         </nav>
